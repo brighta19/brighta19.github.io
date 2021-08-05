@@ -8,18 +8,22 @@ html, body {
     width: 100%;
     height: 100%;
     border: none;
+    transition: background-color 0.2s;
 }
 
-.menu {
+#menu {
     display: block;
     position: fixed;
     top: 0;
     left: 0;
-    width: 148px;
+    width: 150px;
     height: 100%;
     background: #0AF;
     transition: left 0.5s;
     overflow: auto;
+}
+#menu.hide {
+    left: -150px;
 }
 
 .project {
@@ -63,19 +67,23 @@ html, body {
     box-shadow: 0 10px 20px #888 inset;
 }
 
-.cover {
+#cover {
     display: block;
     position: fixed;
     top: 0;
-    right: 0;
+    left: 150px;
     width: 100%;
     height: 100%;
-    background: black;
+    background-color: black;
     opacity: 0.5;
-    transition: color 0.2s, opacity 0.5s, right 0.5s;
+    transition: background-color 0.2s, opacity 0.5s, left 0.5s;
+}
+#cover.hide {
+    opacity: 0;
+    left: 100vw;
 }
 
-#menuButton {
+#menu-btn {
     display: block;
     position: fixed;
     top: 5px;
@@ -88,13 +96,13 @@ html, body {
     background: none;
     transition: box-shadow 0.2s;
 }
-#menuButton:hover,
-#menuButton:focus{
+#menu-btn:hover,
+#menu-btn:focus {
     cursor: pointer;
     outline: none;
     box-shadow: 0 0 10px #08D;
 }
-#menuButton:active {
+#menu-btn:active {
     color: #FFF;
     border-color: #FFF;
     box-shadow: 0 0 10px #333;

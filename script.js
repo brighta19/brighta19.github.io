@@ -1,38 +1,40 @@
 var view = document.getElementById("view");
-var cover = document.getElementsByClassName("cover")[0];
-var menu = document.getElementsByClassName("menu")[0];
-var menuButton = document.getElementById("menuButton");
+var cover = document.getElementById("cover");
+var menu = document.getElementById("menu");
+var menuBtn = document.getElementById("menu-btn");
 
 var menuOpen = true;
 
 
 function setView(src, coverColor) {
-    cover.style.background = coverColor;
-    cover.style.opacity = 0;
+    cover.style.backgroundColor = coverColor;
+    view.style.backgroundColor = (coverColor === "white") ? "black" : "white";
     view.src = src;
-    view.onload = toggleMenu;
+    view.onload = () => {
+        view.title = view.contentDocument.title;
+        toggleMenu();
+    };
 }
 
 function toggleMenu() {
-    
     if (menuOpen) {
-        menu.style.left = "-150px";
-        cover.style.opacity = "0";
-        cover.style.right = "-" + window.innerWidth + "px";
-        menuButton.innerHTML = ">>";
+        menu.classList.add("hide");
+        cover.classList.add("hide");
+        menuBtn.innerHTML = ">>";
+        menuOpen = false;
     }
     else {
-        menu.style.left = "0";
-        cover.style.opacity = "0.5";
-        cover.style.right = "-148px";
-        menuButton.innerHTML = "<<";
+        menu.classList.remove("hide");
+        cover.classList.remove("hide");
+        menuBtn.innerHTML = "<<";
+        menuOpen = true;
     }
-    
-    menuOpen = !menuOpen;
-    
 }
 
-view.onload = function () {
+view.onload = () => {
     view.contentDocument.getElementById("description").innerHTML += 
     " Click the button on the upper left to see some things I've done.";
 };
+
+
+setTimeout(() => menuOpen ? toggleMenu() : 0, 1500);

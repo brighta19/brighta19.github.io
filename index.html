@@ -4,16 +4,21 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Bright Amoateng</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A programmer, who wants to do more...">
+    <meta property="og:title" content="Bright Amoateng">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://brighta19.github.io/">
     <link rel="stylesheet" href="style.css">
+    <title>Bright Amoateng</title>
 </head>
 <body>
+    <iframe id="view" title="Home" src="home.html"></iframe>
     
-    <iframe id="view" src="home.html"></iframe>
+    <div id="cover" onclick="toggleMenu()"></div>
     
-    <div class="cover" onclick="toggleMenu()"></div>
-    
-    <div class="menu">
+    <div id="menu">
         
         <div class="project home" onclick="setView('home.html', 'black')">
             <p class="project-name">Home</p>
@@ -89,17 +94,8 @@
         
     </div>
     
-    <button id="menuButton" onclick="toggleMenu()">&lt;&lt;</button>
+    <button id="menu-btn" onclick="toggleMenu()">&lt;&lt;</button>
     
     <script src="script.js"></script>
-    
-    <script>
-        setTimeout(function () {
-            var m = new MouseEvent("click", {clientX: 6, clientY: 6})
-            if (menuOpen)
-              menuButton.dispatchEvent(m);
-        }, 1500);
-    </script>
-    
 </body>
 </html>
