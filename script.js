@@ -11,7 +11,6 @@ function setView(src, coverColor) {
     view.style.backgroundColor = (coverColor === "white") ? "black" : "white";
     view.src = src;
     view.onload = () => {
-        view.title = view.contentDocument.title;
         toggleMenu();
     };
 }
@@ -32,7 +31,7 @@ function toggleMenu() {
 }
 
 view.onload = () => {
-    view.contentDocument.getElementById("description").innerHTML += 
+    view.contentDocument.getElementById("description").innerHTML +=
     " Click the button on the upper left to see some things I've done.";
 };
 
