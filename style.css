@@ -2,6 +2,9 @@ html, body {
     margin: 0;
     height: 100%;
 }
+a {
+    color: #fff;
+}
 
 #view {
     display: block;
@@ -49,6 +52,9 @@ html, body {
     color: white;
     text-align: center;
     font: 16px Verdana, sans-serif;
+}
+.project-name.small {
+    font-size: 0.9rem;
 }
 
 .home {
@@ -111,11 +117,11 @@ html, body {
 ::-webkit-scrollbar {
     width: 8px;
 }
- 
+
 ::-webkit-scrollbar-track {
     background: none;
 }
- 
+
 ::-webkit-scrollbar-thumb {
-    background: #08D; 
+    background: #08D;
 }
