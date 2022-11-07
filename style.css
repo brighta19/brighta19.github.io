@@ -42,6 +42,10 @@ a {
 .project:active {
     background: #38F;
 }
+.project.disabled {
+    background: #888;
+}
+
 .project-name:hover,
 .project-name:active {
     color: #FFF;
@@ -52,6 +56,9 @@ a {
     color: white;
     text-align: center;
     font: 16px Verdana, sans-serif;
+}
+.disabled .project-name {
+    color: #DDD;
 }
 .project-name.small {
     font-size: 0.9rem;
