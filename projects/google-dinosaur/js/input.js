@@ -17,6 +17,7 @@ window.addEventListener("keydown", function (e) {
             input.test = true;
     }
 });
+
 window.addEventListener("keyup", function (e) {
     switch (e.keyCode) {
         case 32:

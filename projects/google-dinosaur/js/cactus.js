@@ -18,20 +18,20 @@ var cactus_info = {
 
 var Cactus = function (type, x) {
     this.x = 600 + x;
-    
+
     this.type = type;
     this.sprite = new Sprite(spritesheet, cactus_info[type].x,
         cactus_info[type].y, cactus_info[type].w, cactus_info[type].h);
     this.y = 150 - this.sprite.height;
     this.width = this.sprite.width;
     this.height = this.sprite.height;
-    
+
     this.speed = 0;
-    
-    
+
     this.update = function (dt) {
         this.x -= (this.speed * dt);
     };
+
     this.render = function (ctx) {
         ctx.save();
         ctx.translate(this.x, this.y);
