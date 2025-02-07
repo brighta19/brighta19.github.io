@@ -116,6 +116,7 @@ function update(dt) {
         gameSpeed += 3 * dt;
 
         if (dino.collidesWith(ground, true)) {
+            dino.ground();
             if (!dino.isDucking) {
                 if (!dino.isRunning) {
                     dino.run();

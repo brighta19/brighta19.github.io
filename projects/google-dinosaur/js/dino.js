@@ -5,8 +5,8 @@ var Dino = function () {
     this.vy = 0;
     this.width = 20;
     this.height = 47;
-    this.jumpForce = 10.5;
-    this.gravity = 35;
+    this.jumpForce = 630;
+    this.gravity = 2100;
 
     this.sprites = {
         initial: new Sprite(spritesheet, 40, 4, 44, 45),
@@ -31,14 +31,16 @@ var Dino = function () {
             this.sprites.running.update(dt);
         }
         if (this.isJumping) {
-            this.vy += (this.gravity * dt);
+            if (this.isDescending) {
+                this.vy += (this.gravity * 5) * dt;
+                this.isDescending = false;
+            }
+            else {
+                this.vy += this.gravity * dt;
+            }
         }
         if (this.isDucking) {
             this.sprites.ducking.update(dt);
-        }
-        if (this.isDescending) {
-            this.vy += (this.gravity * dt) * 5;
-            this.isDescending = false;
         }
         if (this.isMovingToPosition) {
             if (this.x < 42) {
@@ -50,7 +52,7 @@ var Dino = function () {
             }
         }
 
-        this.y += this.vy;
+        this.y += this.vy * dt;
     };
 
     this.render = function (ctx) {
@@ -102,6 +104,10 @@ var Dino = function () {
 
         this.sprites.ducking.startFromBeginning();
     };
+
+    this.ground = function () {
+        this.vy = 0;
+    }
 
     this.descend = function () {
         this.isDescending = true;
